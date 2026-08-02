@@ -1,7 +1,5 @@
 package com.rpontello.asset;
 
-import com.rpontello.manager.AssetManager;
-
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 
@@ -12,7 +10,7 @@ public class GameFont implements Asset{
 
     public GameFont(String resource) {
         this.resource = resource;
-        AssetManager.add(this);
+        this.load();
     }
 
     public Font getFont(int style, int size) {

@@ -1,7 +1,5 @@
 package com.rpontello.asset;
 
-import com.rpontello.manager.AssetManager;
-
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 
@@ -12,7 +10,7 @@ public class Sprite implements Asset {
 
     public Sprite(String resource) {
         this.resource = resource;
-        AssetManager.add(this);
+        this.load();
     }
 
     @Override

@@ -1,15 +1,14 @@
 package com.rpontello;
 
 
-import com.rpontello.manager.AssetManager;
 import com.rpontello.manager.GameManager;
 import com.rpontello.manager.InputManager;
 import com.rpontello.manager.SceneManager;
+import com.rpontello.manager.TileManager;
 
 import javax.swing.JFrame;
 
 import java.awt.Canvas;
-import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 
 public class Game extends Canvas implements Runnable {
@@ -37,7 +36,7 @@ public class Game extends Canvas implements Runnable {
         GameManager.init(this);
         InputManager.init(this);
         SceneManager.init();
-        AssetManager.init();
+        TileManager.init();
     }
 
     public synchronized void start() {
@@ -65,35 +64,23 @@ public class Game extends Canvas implements Runnable {
             lastTime = now;
 
             while (delta >= 1) {
-                update();
+                SceneManager.update();
                 delta--;
             }
 
-            render();
+            SceneManager.render(getBufferStrategy());
+
         }
 
         stop();
     }
 
-    private void update() {
-        SceneManager.update();
-    }
-
-    private void render() {
-
-        BufferStrategy bs = getBufferStrategy();
-
-        if (bs == null) {
+    @Override
+    public BufferStrategy getBufferStrategy() {
+        if (super.getBufferStrategy() == null) {
             createBufferStrategy(3);
-            return;
         }
-
-        Graphics2D g = (Graphics2D) bs.getDrawGraphics();
-
-        SceneManager.render(g);
-
-        g.dispose();
-        bs.show();
+        return super.getBufferStrategy();
     }
 
 

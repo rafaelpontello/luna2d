@@ -9,19 +9,20 @@ import java.awt.RenderingHints;
 import static com.rpontello.Game.GAME_HEIGHT;
 import static com.rpontello.Game.GAME_WIDTH;
 
-public class FirstLevel implements GameObject {
+public class Level02 implements GameObject {
 
+    boolean init = false;
 
     @Override
     public void update() {
-        System.out.println("New Level");
+        if(!init) {
+            init = true;
+            System.out.println("Init level 02...");
+        }
     }
 
     @Override
     public void render(Graphics2D g) {
-        g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
-        g.setColor(Color.GREEN);
-        g.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
     }
 }

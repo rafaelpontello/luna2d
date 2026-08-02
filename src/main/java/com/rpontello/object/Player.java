@@ -49,4 +49,9 @@ public class Player implements GameObject {
     public void render(Graphics2D g) {
         g.drawImage(sprite.getBuffer(), position.getX(), position.getY(), null);
     }
+
+
+    public Position getPosition() {
+        return position;
+    }
 }
