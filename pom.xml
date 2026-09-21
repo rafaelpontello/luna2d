@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.rpontello</groupId>
-    <artifactId>game2d</artifactId>
+    <artifactId>luna2d</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
